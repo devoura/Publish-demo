@@ -1,0 +1,20 @@
+CREATE TABLE Users
+(
+UserID int NOT NULL AUTO_INCREMENT,
+Username varchar(255) UNIQUE NOT NULL,
+HashedPassword varchar(255) NOT NULL,
+FullName varchar(255) NOT NULL,
+PRIMARY KEY (UserID)
+);
+
+CREATE TABLE WebContent
+(
+ID int NOT NULL AUTO_INCREMENT,
+Title varchar(255) NOT NULL,
+Content longtext NOT NULL,
+UserID varchar(255) NOT NULL,
+PRIMARY KEY (ID),
+FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+INSERT INTO users (UserID, Username, HashedPassword, FullName) VALUES (NULL, 'root', '$2y$10$GXrlx2irz5A00wWM40XLHO/.o4XYcPrJK.jwjPiXnRU8YPUzQDDP.', 'Nina Teglverket');
